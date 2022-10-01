@@ -1,0 +1,160 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="content-section">        
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Current Job
+          <a class="btn btn-primary mb-2 float-right" href="{{ url_for('new_job') }}" role="button">New Job</a>
+          <button type="button" class="btn btn-success float-right mr-2" data-toggle="modal" data-target="#completeJobModal">
+            Complete Job
+          </button>
+          <div class="modal fade" id="completeJobModal" tabindex="-1" role="dialog" aria-labelledby="completeJobModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="completeJobModal">Confirm</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body text-center">
+                  Are you sure?
+                </div>
+                <div class="modal-footer justify-content-center">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </legend>
+        <div class="form-group form-control-lg">
+          Job Number: {{ current_job }}<br>
+          Date Started: {{ date_started }}<br>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="content-section">
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      {% if current_job == 'No active job' %}
+        <fieldset disabled class="form-group">
+      {% else %}
+        <fieldset class="form-group"></fieldset>
+      {% endif %}
+        <legend class="border-bottom mb-4">Line 1 - HMI</legend>
+        <div class="form-group">
+          {{ form.commenced_parts_l1.label(class="form-control-label")}}          
+          {{ form.commenced_parts_l1(class="form-control form-control-lg") }}            
+        </div>
+        <div class="form-group">
+          {{ form.good_parts_l1.label(class="form-control-label") }}
+          {{ form.good_parts_l1(class="form-control form-control-lg") }}
+        </div>
+        <legend class="border-bottom mb-4">Line 1 - Rejects</legend>
+        <div class="form-group">
+          {{ form.optic_press_l1.label(class="form-control-label") }}
+          {{ form.optic_press_l1(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.vision_1_l1.label(class="form-control-label") }}
+          {{ form.vision_1_l1(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.vision_1_1_l1.label(class="form-control-label") }}
+          {{ form.vision_1_1_l1(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.pcb_press_l1.label(class="form-control-label") }}
+          {{ form.pcb_press_l1(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.vision_2_l1.label(class="form-control-label") }}
+          {{ form.vision_2_l1(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.rh_press_l1.label(class="form-control-label") }}
+          {{ form.rh_press_l1(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.vision_3_l1.label(class="form-control-label") }}
+          {{ form.vision_3_l1(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.bc_press_l1.label(class="form-control-label") }}
+          {{ form.bc_press_l1(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.vision_4_l1.label(class="form-control-label") }}
+          {{ form.vision_4_l1(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.vision_5_l1.label(class="form-control-label") }}
+          {{ form.vision_5_l1(class="form-control form-control-lg") }}
+        </div>     
+        </fieldset>
+        {% if current_job == 'No active job' %}
+          <fieldset disabled class="form-group">
+        {% else %}
+          <fieldset class="form-group">
+        {% endif %}
+        <legend class="border-bottom mb-4">Line 2 - HMI</legend>
+        <div class="form-group">
+          {{ form.commenced_parts_l2.label(class="form-control-label") }}
+          {{ form.commenced_parts_l2(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.good_parts_l2.label(class="form-control-label") }}
+          {{ form.good_parts_l2(class="form-control form-control-lg") }}
+        </div>
+        <legend class="border-bottom mb-4">Line 2 - Rejects</legend>
+        <div class="form-group">
+          {{ form.optic_press_l2.label(class="form-control-label") }}
+          {{ form.optic_press_l2(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.vision_1_l2.label(class="form-control-label") }}
+          {{ form.vision_1_l2(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.vision_1_1_l2.label(class="form-control-label") }}
+          {{ form.vision_1_1_l2(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.pcb_press_l2.label(class="form-control-label") }}
+          {{ form.pcb_press_l2(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.vision_2_l2.label(class="form-control-label") }}
+          {{ form.vision_2_l2(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.rh_press_l2.label(class="form-control-label") }}
+          {{ form.rh_press_l2(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.vision_3_l2.label(class="form-control-label") }}
+          {{ form.vision_3_l2(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.bc_press_l2.label(class="form-control-label") }}
+          {{ form.bc_press_l2(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.vision_4_l2.label(class="form-control-label") }}
+          {{ form.vision_4_l2(class="form-control form-control-lg") }}
+        </div>
+        <div class="form-group">
+          {{ form.vision_5_l2.label(class="form-control-label") }}
+          {{ form.vision_5_l2(class="form-control form-control-lg") }}
+        </div>           
+        </fieldset>
+        <div class="form-group">
+          {% if current_job != 'No active job' %}
+            {{ form.submit(class="btn btn-outline-info") }}
+          {% endif %}
+        </div>
+    </form>
+  </div>
+{% endblock content %}

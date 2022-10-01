@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Scan New Job</legend>
+      <div class="form-group">
+        {{ form.scan_box.label(class="form-control-label") }}
+        {{ form.scan_box(class="form-control form-control-lg") }}
+      </div>
+      <div class="form-group">
+        {{ form.submit(class="btn btn-outline-info") }}
+      </div>             
+    </fieldset>
+  </form>
+</div>
+{% endblock content %}
