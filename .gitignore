@@ -1,4 +1,4 @@
-__py__cache/
+__pycache__/
 Include/
 Lib/
 Scripts/
